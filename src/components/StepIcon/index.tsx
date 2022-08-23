@@ -4,9 +4,10 @@ type Props = {
   stepName: string;
   stepInfo: string;
   imgSrc: string;
+  isActive: boolean
 };
 
-export const StepIcon = ({ stepName, stepInfo, imgSrc }: Props) => {
+export const StepIcon = ({ stepName, stepInfo, imgSrc, isActive }: Props) => {
   return (
     <S.Box>
       <S.TextBox>
@@ -14,11 +15,11 @@ export const StepIcon = ({ stepName, stepInfo, imgSrc }: Props) => {
         <small>{stepInfo}</small>
       </S.TextBox>
 
-      <S.ImgBox>
-        <img src={imgSrc} alt="" />
+      <S.ImgBox isActive={isActive}>
+        <img draggable="false" src={imgSrc} alt="" />
       </S.ImgBox>
 
-      <S.Circle></S.Circle>
+      <S.Circle isActive={isActive}></S.Circle>
     </S.Box>
   );
 };

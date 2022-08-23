@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  min-height: calc(100vh - 172px);
 `;
 
 export const StepSide = styled.aside`
@@ -11,13 +12,14 @@ export const StepSide = styled.aside`
   gap: 32px;
   padding-top: 16px;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
-  height: 100vh;
-  width: 300px;
+  min-height: 100%;
+  min-width: 250px;
+  max-width: 250px;
 `;
 
 export const Main = styled.main`
   padding: 32px 16px;
-  height: 100vh;
+  height: 100%;
 
   header {
     display: flex;

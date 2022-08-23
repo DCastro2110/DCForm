@@ -1,6 +1,9 @@
 import { ReactElement } from "react";
-import { StepIcon } from "../StepIcon";
+import { NavLink, useLocation } from "react-router-dom";
+
 import * as S from "./style";
+
+import { StepIcon } from "../StepIcon";
 
 import PersonIcon from "../../assets/svg/person.svg";
 import BookIcon from "../../assets/svg/book.svg";
@@ -19,24 +22,35 @@ export const StepContainer = ({
   stepText,
   children,
 }: Props) => {
+  const { pathname } = useLocation();
+
   return (
     <S.Container>
       <S.StepSide>
-        <StepIcon
-          stepName="Pessoal"
-          stepInfo="Se identifique"
-          imgSrc={PersonIcon}
-        ></StepIcon>
-        <StepIcon
-          stepName="Profissional"
-          stepInfo="Seu nível"
-          imgSrc={BookIcon}
-        ></StepIcon>
-        <StepIcon
-          stepName="Contatos"
-          stepInfo="Como te achar"
-          imgSrc={EmailIcon}
-        ></StepIcon>
+        <NavLink to="/" style={{textDecoration: 'none'}}>
+          <StepIcon
+            stepName="Pessoal"
+            stepInfo="Se identifique"
+            imgSrc={PersonIcon}
+            isActive={pathname === "/"}
+          ></StepIcon>
+        </NavLink>
+        <NavLink to="/step2" style={{textDecoration: 'none'}}>
+          <StepIcon
+            stepName="Profissional"
+            stepInfo="Seu nível"
+            imgSrc={BookIcon}
+            isActive={pathname === "/step2"}
+          ></StepIcon>
+        </NavLink>
+        <NavLink to="/step3" style={{textDecoration: 'none'}}>
+          <StepIcon
+            stepName="Contatos"
+            stepInfo="Como te achar"
+            imgSrc={EmailIcon}
+            isActive={pathname === "/step3"}
+          ></StepIcon>
+        </NavLink>
       </S.StepSide>
       <S.Main>
         <header>

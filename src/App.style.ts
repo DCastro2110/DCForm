@@ -14,6 +14,7 @@ export const Header = styled.header`
   color: #fff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 32px 4px;
+  height: 140px;
 
   h1 {
     margin-bottom: 8px;
