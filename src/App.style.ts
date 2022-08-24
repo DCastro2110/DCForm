@@ -13,8 +13,8 @@ export const Header = styled.header`
   width: 100%;
   color: #fff;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 32px 4px;
-  height: 140px;
+  padding: 32px 16px;
+  font-size: 1.6rem;
 
   h1 {
     margin-bottom: 8px;
