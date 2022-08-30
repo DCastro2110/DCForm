@@ -14,7 +14,7 @@ export const StepSide = styled.aside`
   align-items: flex-end;
   flex-direction: column;
   gap: 32px;
-  padding: 16px 16px 0 16px;
+  padding: 16px 0 0 16px;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
   min-height: 100%;
   min-width: 250px;
