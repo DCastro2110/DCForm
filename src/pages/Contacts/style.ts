@@ -37,3 +37,31 @@ export const Form = styled.form`
     }
   }
 `;
+
+export const Buttons = styled.div`
+  display: flex;
+  gap: 16px;
+
+  button:nth-child(1) {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    padding: 16px 20px;
+    cursor: pointer;
+  }
+
+  button:nth-child(2) {
+    padding: 16px 20px;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    background-color: #77ca90;
+    transition: opacity 300ms ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+`;

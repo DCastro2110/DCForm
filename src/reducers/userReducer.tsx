@@ -33,7 +33,7 @@ export const userReducer = (state: UserStateType, action: UserActionType) => {
     case "ADD_PCD_STATUS":
       return {
         ...state,
-        haveParticipatedInTheEven: action.payload.haveParticipatedInTheEvent,
+        haveParticipatedInTheEvent: action.payload.haveParticipatedInTheEvent,
       };
     case "ADD_CONTACTS":
       return {

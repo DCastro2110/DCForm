@@ -32,20 +32,22 @@ export const Profissional = () => {
       },
     });
 
-    navigate("/step3");
+    toast.success("Salvo com sucesso!", {
+      backgroundColor: "#77ca90",
+    });
   };
 
   const handleBack = () => {
-    navigate("/");
+    navigate("/contato");
   };
 
   return (
     <>
       <ToastContainer delay={3000} position="top-center" />
       <StepContainer
-        step={2}
+        step={3}
         stepTitle={`${captureTheFirstName(
-          state.name || ''
+          state.name || ""
         )}, você já participou de alguma das edições anteriores?`}
         stepText="Já tivemos duas edições aqui em Juiz de Fora."
       >

@@ -53,7 +53,7 @@ export const Personal = () => {
       },
     });
 
-    navigate("/step2");
+    navigate("/contato");
   };
 
   return (

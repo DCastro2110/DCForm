@@ -1,4 +1,5 @@
 import { FormEvent, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { MainContext } from "../../contexts/MainContext";
 
@@ -11,6 +12,7 @@ export const Contacts = () => {
   const { state, dispatch } = useContext(MainContext);
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (state.email && state.phone) {
@@ -39,16 +41,18 @@ export const Contacts = () => {
       },
     });
 
-    toast.success("Salvo com sucesso!", {
-      backgroundColor: "#77ca90",
-    });
+    navigate("/evento");
+  };
+
+  const handleBack = () => {
+    navigate("/");
   };
 
   return (
     <>
       <ToastContainer delay={3000} position="top-center" />
       <StepContainer
-        step={3}
+        step={2}
         stepTitle={`Estamos quase lá`}
         stepText="Para finalizar, preencha com seus dados para que possamos entrar em contato."
       >
@@ -67,9 +71,12 @@ export const Contacts = () => {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
           />
-          <button onClick={handleSubmit} type="submit">
-            Enviar
-          </button>
+          <S.Buttons>
+            <button onClick={handleBack}>Voltar</button>
+            <button onClick={handleSubmit} type="submit">
+              Enviar
+            </button>
+          </S.Buttons>
         </S.Form>
       </StepContainer>
     </>
