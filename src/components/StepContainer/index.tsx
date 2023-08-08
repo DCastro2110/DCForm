@@ -1,5 +1,7 @@
-import { ReactElement } from "react";
+import { MouseEvent, ReactElement, useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+
+import { MainContext } from "../../contexts/MainContext";
 
 import * as S from "./style";
 
@@ -23,6 +25,25 @@ export const StepContainer = ({
   children,
 }: Props) => {
   const { pathname } = useLocation();
+  const { state } = useContext(MainContext);
+
+  const handleGoToContact = (e: MouseEvent) => {
+    if (!state.name || !state.age || !state.job) {
+      e.preventDefault();
+    }
+  };
+
+  const handleGoToEvent = (e: MouseEvent) => {
+    if (
+      !state.name ||
+      !state.age ||
+      !state.job ||
+      !state.email ||
+      !state.phone
+    ) {
+      e.preventDefault();
+    }
+  };
 
   return (
     <S.Container>
@@ -35,7 +56,11 @@ export const StepContainer = ({
             isActive={pathname === "/"}
           ></StepIcon>
         </NavLink>
-        <NavLink to="/contato" style={{ textDecoration: "none" }}>
+        <NavLink
+          onClick={(e) => handleGoToContact(e)}
+          to="/contato"
+          style={{ textDecoration: "none" }}
+        >
           <StepIcon
             stepName="Contatos"
             stepInfo=""
@@ -43,7 +68,11 @@ export const StepContainer = ({
             isActive={pathname === "/contato"}
           ></StepIcon>
         </NavLink>
-        <NavLink to="/evento" style={{ textDecoration: "none" }}>
+        <NavLink
+          onClick={handleGoToEvent}
+          to="/evento"
+          style={{ textDecoration: "none" }}
+        >
           <StepIcon
             stepName="Evento"
             stepInfo=""

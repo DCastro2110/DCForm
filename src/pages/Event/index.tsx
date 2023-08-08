@@ -64,7 +64,7 @@ export const Profissional = () => {
             <S.TextBox>
               <strong>Já participei!</strong>
               <small>
-                E estou doido para poder tomar aquele chopp de novo!
+                Estou doido para poder tomar aquele chopp de novo!
               </small>
             </S.TextBox>
           </label>
