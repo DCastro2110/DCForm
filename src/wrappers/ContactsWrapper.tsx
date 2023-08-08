@@ -6,9 +6,9 @@ export const ContactsWrapper = ({ children }: { children: ReactElement }) => {
   const { state } = useContext(MainContext);
 
   if (!state.name) {
-    return <Navigate to='/' />
-  } else if (!state.level) {
-    return <Navigate to="/step2" />
+    return <Navigate to="/" />;
+  } else if (state.haveParticipatedInTheEvent === undefined) {
+    return <Navigate to="/step2" />;
   }
 
   return children;

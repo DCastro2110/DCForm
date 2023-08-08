@@ -10,12 +10,12 @@ import { toast, ToastContainer } from "react-toast";
 export const Contacts = () => {
   const { state, dispatch } = useContext(MainContext);
   const [email, setEmail] = useState("");
-  const [github, setGithub] = useState("");
+  const [phone, setPhone] = useState("");
 
   useEffect(() => {
-    if (state.email && state.github) {
+    if (state.email && state.phone) {
       setEmail(state.email);
-      setGithub(state.github);
+      setPhone(state.phone);
     }
   }, []);
 
@@ -26,8 +26,8 @@ export const Contacts = () => {
       toast.error("Email inválido");
       return;
     }
-    if (!github) {
-      toast.error("GitHub inválido!");
+    if (!phone) {
+      toast.error("Telefone inválido!");
       return;
     }
 
@@ -35,19 +35,12 @@ export const Contacts = () => {
       type: "ADD_CONTACTS",
       payload: {
         email,
-        github,
+        phone,
       },
     });
 
-    toast.success("Enviado com sucesso!", {
+    toast.success("Salvo com sucesso!", {
       backgroundColor: "#77ca90",
-    });
-
-    console.log({
-      name: state.name,
-      level: state.level,
-      email,
-      github,
     });
   };
 
@@ -56,8 +49,8 @@ export const Contacts = () => {
       <ToastContainer delay={3000} position="top-center" />
       <StepContainer
         step={3}
-        stepTitle={`Legal ${state.name}, onde te achamos`}
-        stepText="Preencha com seus contatos para conseguirmos entrar em contato."
+        stepTitle={`Estamos quase lá`}
+        stepText="Para finalizar, preencha com seus dados para que possamos entrar em contato."
       >
         <S.Form>
           <label htmlFor="email">Qual seu email?</label>
@@ -67,12 +60,12 @@ export const Contacts = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label htmlFor="github">Qual seu GitHub</label>
+          <label htmlFor="phone">Qual seu telefone para contato?</label>
           <input
-            type="text"
-            id="github"
-            value={github}
-            onChange={(e) => setGithub(e.target.value)}
+            type="tel"
+            id="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
           <button onClick={handleSubmit} type="submit">
             Enviar
