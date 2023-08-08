@@ -3,7 +3,7 @@ export type UserStateType = {
   phone?: string;
   email?: string;
   job?: string;
-  age?: number;
+  age?: string;
   haveParticipatedInTheEvent?: boolean;
 };
 
