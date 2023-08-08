@@ -8,6 +8,8 @@ import * as S from "./style";
 import { StepContainer } from "../../components/StepContainer";
 import { ToastContainer, toast } from "react-toast";
 
+import { captureTheFirstName } from "../../utils/captureTheFirstName";
+
 export const Profissional = () => {
   const { state, dispatch } = useContext(MainContext);
   const navigate = useNavigate();
@@ -42,8 +44,10 @@ export const Profissional = () => {
       <ToastContainer delay={3000} position="top-center" />
       <StepContainer
         step={2}
-        stepTitle={`${state.name}, você já participou de alguma das edições anteriores?`}
-        stepText=""
+        stepTitle={`${captureTheFirstName(
+          state.name || ''
+        )}, você já participou de alguma das edições anteriores?`}
+        stepText="Já tivemos duas edições aqui em Juiz de Fora."
       >
         <S.Form>
           <input
@@ -57,7 +61,9 @@ export const Profissional = () => {
             <S.ImgBox>🥳</S.ImgBox>
             <S.TextBox>
               <strong>Já participei!</strong>
-              <small>Estou doido para poder tomar aquele chopp de novo!</small>
+              <small>
+                E estou doido para poder tomar aquele chopp de novo!
+              </small>
             </S.TextBox>
           </label>
           <input
@@ -71,7 +77,7 @@ export const Profissional = () => {
             <S.ImgBox>🤓</S.ImgBox>
             <S.TextBox>
               <strong>Ainda não!</strong>
-              <small>Só vou dessa vez, porque disseram que tem pizza.</small>
+              <small>Vou dessa vez, porque disseram que tem pizza.</small>
             </S.TextBox>
           </label>
           <S.Buttons>
