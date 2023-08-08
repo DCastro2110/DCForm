@@ -9,8 +9,12 @@ export const ProfissionalWrapper = ({
 }) => {
   const { state } = useContext(MainContext);
 
-  if (!state.name) {
+  if (!state.name || !state.age || !state.job) {
     return <Navigate to="/" />;
+  }
+
+  if (!state.email || !state.phone) {
+    return <Navigate to="/contato" />;
   }
 
   return children;

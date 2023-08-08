@@ -1,35 +1,46 @@
 export type UserStateType = {
-  name: string | undefined;
-  level: "begginer" | "pro" | undefined;
-  email: string | undefined;
-  github: string | undefined;
+  name?: string;
+  phone?: string;
+  email?: string;
+  job?: string;
+  age?: string;
+  haveParticipatedInTheEvent?: boolean;
 };
 
 export type UserActionType = {
-  type: "ADD_NAME" | "CHOOSE_LEVEL" | "ADD_CONTACTS"
-  payload: {
-    name?: string;
-    level?: "begginer" | "pro";
-    email?: string;
-    github?: string;
-  };
+  type: "ADD_PERSONAL" | "ADD_PCD_STATUS" | "ADD_CONTACTS";
+  payload: UserStateType;
 };
 
 export const userInitialState = {
-  name: "",
-  level: undefined,
-  email: "",
-  github: "",
+  name: undefined,
+  age: undefined,
+  email: undefined,
+  phone: undefined,
+  job: undefined,
+  haveParticipatedInTheEvent: undefined,
 };
 
 export const userReducer = (state: UserStateType, action: UserActionType) => {
   switch (action.type) {
-    case "ADD_NAME":
-      return { ...state, name: action.payload.name };
-    case "CHOOSE_LEVEL":
-      return { ...state, level: action.payload.level };
+    case "ADD_PERSONAL":
+      return {
+        ...state,
+        name: action.payload.name,
+        age: action.payload.age,
+        job: action.payload.job,
+      };
+    case "ADD_PCD_STATUS":
+      return {
+        ...state,
+        haveParticipatedInTheEvent: action.payload.haveParticipatedInTheEvent,
+      };
     case "ADD_CONTACTS":
-      return { ...state, email: action.payload.email, github: action.payload.github };
+      return {
+        ...state,
+        email: action.payload.email,
+        phone: action.payload.phone,
+      };
     default:
       return { ...state };
   }

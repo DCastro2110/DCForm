@@ -1,4 +1,5 @@
 import { FormEvent, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { MainContext } from "../../contexts/MainContext";
 
@@ -10,12 +11,13 @@ import { toast, ToastContainer } from "react-toast";
 export const Contacts = () => {
   const { state, dispatch } = useContext(MainContext);
   const [email, setEmail] = useState("");
-  const [github, setGithub] = useState("");
+  const [phone, setPhone] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (state.email && state.github) {
+    if (state.email && state.phone) {
       setEmail(state.email);
-      setGithub(state.github);
+      setPhone(state.phone);
     }
   }, []);
 
@@ -26,8 +28,8 @@ export const Contacts = () => {
       toast.error("Email inválido");
       return;
     }
-    if (!github) {
-      toast.error("GitHub inválido!");
+    if (!phone) {
+      toast.error("Telefone inválido!");
       return;
     }
 
@@ -35,29 +37,24 @@ export const Contacts = () => {
       type: "ADD_CONTACTS",
       payload: {
         email,
-        github,
+        phone,
       },
     });
 
-    toast.success("Enviado com sucesso!", {
-      backgroundColor: "#77ca90",
-    });
+    navigate("/evento");
+  };
 
-    console.log({
-      name: state.name,
-      level: state.level,
-      email,
-      github,
-    });
+  const handleBack = () => {
+    navigate("/");
   };
 
   return (
     <>
       <ToastContainer delay={3000} position="top-center" />
       <StepContainer
-        step={3}
-        stepTitle={`Legal ${state.name}, onde te achamos`}
-        stepText="Preencha com seus contatos para conseguirmos entrar em contato."
+        step={2}
+        stepTitle={`Estamos quase lá!`}
+        stepText="Preencha com seus dados para que possamos entrar em contato."
       >
         <S.Form>
           <label htmlFor="email">Qual seu email?</label>
@@ -67,16 +64,19 @@ export const Contacts = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <label htmlFor="github">Qual seu GitHub</label>
+          <label htmlFor="phone">Qual seu telefone para contato?</label>
           <input
-            type="text"
-            id="github"
-            value={github}
-            onChange={(e) => setGithub(e.target.value)}
+            type="tel"
+            id="phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
-          <button onClick={handleSubmit} type="submit">
-            Enviar
-          </button>
+          <S.Buttons>
+            <button onClick={handleBack}>Voltar</button>
+            <button onClick={handleSubmit} type="submit">
+              Enviar
+            </button>
+          </S.Buttons>
         </S.Form>
       </StepContainer>
     </>

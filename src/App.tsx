@@ -3,10 +3,10 @@ import { Routes, Route } from "react-router-dom";
 import * as S from "./App.style";
 
 import { Personal } from "./pages/Personal";
-import { Profissional } from "./pages/Profissional";
+import { Profissional } from "./pages/Event";
 import { Contacts } from "./pages/Contacts";
 import { MainContextProvider } from "./contexts/MainContext";
-import { ProfissionalWrapper } from "./wrappers/ProfissionalWrapper";
+import { ProfissionalWrapper } from "./wrappers/EventWrapper";
 import { ContactsWrapper } from "./wrappers/ContactsWrapper";
 
 const App = () => {
@@ -14,29 +14,30 @@ const App = () => {
     <>
       <S.Container>
         <S.Header>
-          <h1>Cadastro de Desenvolvedor</h1>
-          <small>
-            Faça seu cadastro para entrar no nosso banco de talentos.
-          </small>
+          <div>
+            <h1>Inscrições para o Pro Civitate Dei JF - 2023</h1>
+            <small>Fechamento das Incrições: 08/11/2023</small>
+          </div>
+          <img src="assets/logo-pcd.svg" />
         </S.Header>
 
         <MainContextProvider>
           <Routes>
             <Route path="/" element={<Personal />} />
             <Route
-              path="/step2"
-              element={
-                <ProfissionalWrapper>
-                  <Profissional />
-                </ProfissionalWrapper>
-              }
-            />
-            <Route
-              path="/step3"
+              path="/contato"
               element={
                 <ContactsWrapper>
                   <Contacts />
                 </ContactsWrapper>
+              }
+            />
+            <Route
+              path="/evento"
+              element={
+                <ProfissionalWrapper>
+                  <Profissional />
+                </ProfissionalWrapper>
               }
             />
           </Routes>

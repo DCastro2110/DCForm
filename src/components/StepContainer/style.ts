@@ -47,13 +47,18 @@ export const Main = styled.main`
     margin-bottom: 16px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     color: #fff;
+    h2 {
+      @media (max-width: 576px) {
+        font-size: 2rem;
+      }
+    }
     small {
       font-weight: light;
-      font-size: 14px;
+      font-size: 1.4rem;
     }
     span {
       font-weight: light;
-      font-size: 14px;
+      font-size: 1.4rem;
     }
     small,
     span {

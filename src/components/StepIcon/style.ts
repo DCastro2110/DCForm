@@ -55,7 +55,7 @@ export const ImgBox = styled.div<Props>`
   justify-content: center;
   align-items: center;
   background-color: ${(props) =>
-    props.isActive ? "#77ca90" : "rgba(255, 255, 255, 0.6)"};
+    props.isActive ? "#E2B72E" : "rgba(255, 255, 255, 0.6)"};
 
   img {
     width: 100%;
@@ -73,8 +73,8 @@ export const Circle = styled.div<Props>`
   margin-right: -6px;
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 50%;
-  background-color: ${(props) => (props.isActive ? "#77ca90" : "#020349")};
-  ${(props) => props.isActive && "box-shadow: 0 0 5px 1px #77ca90"};
+  background-color: ${(props) => (props.isActive ? "#E2B72E" : "#020349")};
+  ${(props) => props.isActive && "box-shadow: 0 0 5px 1px #E2B72E"};
 
   @media (max-width: 768px) {
     display: none;

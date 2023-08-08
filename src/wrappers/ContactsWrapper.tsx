@@ -4,11 +4,9 @@ import { MainContext } from "../contexts/MainContext";
 
 export const ContactsWrapper = ({ children }: { children: ReactElement }) => {
   const { state } = useContext(MainContext);
-
-  if (!state.name) {
-    return <Navigate to='/' />
-  } else if (!state.level) {
-    return <Navigate to="/step2" />
+  
+  if (!state.name || !state.age || !state.job) {
+    return <Navigate to="/" />;
   }
 
   return children;

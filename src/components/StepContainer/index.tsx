@@ -1,5 +1,7 @@
-import { ReactElement } from "react";
+import { MouseEvent, ReactElement, useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+
+import { MainContext } from "../../contexts/MainContext";
 
 import * as S from "./style";
 
@@ -23,32 +25,59 @@ export const StepContainer = ({
   children,
 }: Props) => {
   const { pathname } = useLocation();
+  const { state } = useContext(MainContext);
+
+  const handleGoToContact = (e: MouseEvent) => {
+    if (!state.name || !state.age || !state.job) {
+      e.preventDefault();
+    }
+  };
+
+  const handleGoToEvent = (e: MouseEvent) => {
+    if (
+      !state.name ||
+      !state.age ||
+      !state.job ||
+      !state.email ||
+      !state.phone
+    ) {
+      e.preventDefault();
+    }
+  };
 
   return (
     <S.Container>
       <S.StepSide>
-        <NavLink to="/" style={{textDecoration: 'none'}}>
+        <NavLink to="/" style={{ textDecoration: "none" }}>
           <StepIcon
             stepName="Pessoal"
-            stepInfo="Se identifique"
+            stepInfo=""
             imgSrc={PersonIcon}
             isActive={pathname === "/"}
           ></StepIcon>
         </NavLink>
-        <NavLink to="/step2" style={{textDecoration: 'none'}}>
-          <StepIcon
-            stepName="Profissional"
-            stepInfo="Seu nível"
-            imgSrc={BookIcon}
-            isActive={pathname === "/step2"}
-          ></StepIcon>
-        </NavLink>
-        <NavLink to="/step3" style={{textDecoration: 'none'}}>
+        <NavLink
+          onClick={(e) => handleGoToContact(e)}
+          to="/contato"
+          style={{ textDecoration: "none" }}
+        >
           <StepIcon
             stepName="Contatos"
-            stepInfo="Como te achar"
+            stepInfo=""
             imgSrc={EmailIcon}
-            isActive={pathname === "/step3"}
+            isActive={pathname === "/contato"}
+          ></StepIcon>
+        </NavLink>
+        <NavLink
+          onClick={handleGoToEvent}
+          to="/evento"
+          style={{ textDecoration: "none" }}
+        >
+          <StepIcon
+            stepName="Evento"
+            stepInfo=""
+            imgSrc={BookIcon}
+            isActive={pathname === "/evento"}
           ></StepIcon>
         </NavLink>
       </S.StepSide>
