@@ -15,8 +15,20 @@ export const Header = styled.header`
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 32px 16px;
   font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
 
   h1 {
     margin-bottom: 8px;
+
+    @media (max-width: 576px) {
+      font-size: 2.4rem;
+    }
+  }
+
+  img {
+    width: 8rem;
   }
 `;

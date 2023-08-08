@@ -18,8 +18,8 @@ export const Form = styled.form`
     color: #fff;
 
     &:focus {
-      border: 1px solid #77ca90;
-      box-shadow: 0 0 10px -5px #77ca90;
+      border: 1px solid #e2b72e;
+      box-shadow: 0 0 10px -5px #e2b72e;
     }
   }
   button {
@@ -28,7 +28,7 @@ export const Form = styled.form`
     border: none;
     color: #fff;
     font-weight: bold;
-    background-color: #77ca90;
+    background-color: #e2b72e;
     transition: opacity 300ms ease-in-out;
     cursor: pointer;
 
@@ -56,7 +56,7 @@ export const Buttons = styled.div`
     border: none;
     color: #fff;
     font-weight: bold;
-    background-color: #77ca90;
+    background-color: #e2b72e;
     transition: opacity 300ms ease-in-out;
     cursor: pointer;
 

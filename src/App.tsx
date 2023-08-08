@@ -14,8 +14,11 @@ const App = () => {
     <>
       <S.Container>
         <S.Header>
-          <h1>Inscrições para o Pro Civiate Dei JF - 2023</h1>
-          <small>Fechamento das Incrições: 08/11/2023</small>
+          <div>
+            <h1>Inscrições para o Pro Civitate Dei JF - 2023</h1>
+            <small>Fechamento das Incrições: 08/11/2023</small>
+          </div>
+          <img src="assets/logo-pcd.svg" />
         </S.Header>
 
         <MainContextProvider>
