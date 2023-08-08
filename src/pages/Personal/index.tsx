@@ -61,7 +61,7 @@ export const Personal = () => {
       <ToastContainer delay={3000} position="top-center" />
       <StepContainer
         step={1}
-        stepTitle={`Vamos começar com algumas informações pessoais`}
+        stepTitle={`Vamos começar com algumas informações pessoais.`}
         stepText="Preencha os campos abaixos."
       >
         <S.Form>

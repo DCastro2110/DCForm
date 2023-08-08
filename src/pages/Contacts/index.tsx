@@ -53,8 +53,8 @@ export const Contacts = () => {
       <ToastContainer delay={3000} position="top-center" />
       <StepContainer
         step={2}
-        stepTitle={`Estamos quase lá`}
-        stepText="Para finalizar, preencha com seus dados para que possamos entrar em contato."
+        stepTitle={`Estamos quase lá!`}
+        stepText="Preencha com seus dados para que possamos entrar em contato."
       >
         <S.Form>
           <label htmlFor="email">Qual seu email?</label>
